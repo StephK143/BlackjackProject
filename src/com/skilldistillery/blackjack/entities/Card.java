@@ -12,11 +12,9 @@ public class Card {
 		this.rank = rank;
 	}
 
-	
-	public Rank getValue() {
-		return rank;
+	public int getValue() {
+		return rank.getValue();
 	}
-
 
 	@Override
 	public int hashCode() {
