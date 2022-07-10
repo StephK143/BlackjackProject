@@ -22,16 +22,15 @@ public abstract class Hand {
 		cards.add(card);
 	}
 
-	public String showOneCard() {
-		String hiddenCard = "Hidden card " + cards.get(0).toString();
-		return hiddenCard;
-	}
 
+	public void addCard(Card card) {
+		cards.add(card);
+	}
 	public abstract int getHandValue();
 
 	@Override
 	public String toString() {
-		String displayCards = "" + cards.toString();
+		String displayCards = ("" + getCards().toString());
 		return displayCards;
 	}
 

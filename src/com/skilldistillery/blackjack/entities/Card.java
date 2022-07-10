@@ -32,10 +32,12 @@ public class Card {
 		Card other = (Card) obj;
 		return rank == other.rank && suit == other.suit;
 	}
+	
+	// ascii art this.Suit
 
 	@Override
 	public String toString() {
-		return rank + " of " + suit;
+		return ("" + rank + " of " + suit + "");
 	}
 
 }

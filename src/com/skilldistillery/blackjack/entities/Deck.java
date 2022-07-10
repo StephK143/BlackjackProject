@@ -36,7 +36,7 @@ public class Deck {
 
 	public void shuffle() {
 		Collections.shuffle(cards);
-		System.out.println("Cards are now shuffled");
+		System.out.println("Cards are shuffling....");
 
 	}
 }
