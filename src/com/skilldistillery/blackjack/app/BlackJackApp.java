@@ -15,7 +15,7 @@ public class BlackJackApp {
 	Deck deck = new Deck();
 	List<Card> newDeck = new ArrayList<>();
 	Dealer dealer = new Dealer();
-	Gambler dealerPlaysHisHand = new BlackJackPlayer();
+	Gambler dealerPlays = new BlackJackPlayer();
 	Gambler gambler = new BlackJackPlayer();
 	Scanner kb = new Scanner(System.in);
 
@@ -33,7 +33,7 @@ public class BlackJackApp {
 		dealer.getNewDeck().shuffle();
 		dealStarterCards();
 		dealer.showGamblersHand(gambler);
-		dealer.dealerShowsOneCardUp(dealerPlaysHisHand);
+		dealer.dealerShowsOneCardUp(dealerPlays);
 		checkHandValue();
 		gamblerPlaysHand();
 		dealerDrawRules();
@@ -68,9 +68,9 @@ public class BlackJackApp {
 
 	public void dealStarterCards() {
 		dealer.dealCards(gambler);
-		dealer.dealCards(dealerPlaysHisHand);
+		dealer.dealCards(dealerPlays);
 		dealer.dealCards(gambler);
-		dealer.dealCards(dealerPlaysHisHand);
+		dealer.dealCards(dealerPlays);
 	}
 
 	public void checkHandValue() {
@@ -104,20 +104,20 @@ public class BlackJackApp {
 	}
 
 	public void dealerDrawRules() {
-		dealer.dealerShowsHand(dealerPlaysHisHand);
+		dealer.dealerShowsHand(dealerPlays);
 
-		while (dealerPlaysHisHand.getHand().getHandValue() < 17) {
-			System.out.println("Dealer must hit with " + dealerPlaysHisHand.getHand().getHandValue());
-			dealer.dealCards(dealerPlaysHisHand);
-			System.out.println("The dealer now has " + dealerPlaysHisHand.getHand().getCards()
-					+ ". The total of which is " + dealerPlaysHisHand.getHand().getHandValue());
+		while (dealerPlays.getHand().getHandValue() < 17) {
+			System.out.println("Dealer hits with " + dealerPlays.getHand().getHandValue());
+			dealer.dealCards(dealerPlays);
+			System.out.println("The dealer now has " + dealerPlays.getHand().getCards() + ". The total of which is "
+					+ dealerPlays.getHand().getHandValue());
 
 		}
-		while (dealerPlaysHisHand.getHand().getHandValue() > 17 && dealerPlaysHisHand.getHand().getHandValue() < 22) {
-			System.out.println("Dealer must stand with " + dealerPlaysHisHand.getHand().getHandValue());
+		while (dealerPlays.getHand().getHandValue() > 17 && dealerPlays.getHand().getHandValue() < 22) {
+			System.out.println("Dealer stands with " + dealerPlays.getHand().getHandValue());
 			break;
 		}
-		while (dealerPlaysHisHand.getHand().getHandValue() > 21) {
+		while (dealerPlays.getHand().getHandValue() > 21) {
 			System.out.println("The dealer busts!");
 			break;
 		}
@@ -141,24 +141,22 @@ public class BlackJackApp {
 
 	public void announceWinner() {
 
-		if (gambler.getHand().getHandValue() > dealerPlaysHisHand.getHand().getHandValue()
+		if (gambler.getHand().getHandValue() > dealerPlays.getHand().getHandValue()
 				&& gambler.getHand().getHandValue() < 22) {
 			System.out.println("******   You win!!   ******");
 			playAgainMenu();
-		} else if (gambler.getHand().getHandValue() < dealerPlaysHisHand.getHand().getHandValue()
-				&& gambler.getHand().getHandValue() < 22 && dealerPlaysHisHand.getHand().getHandValue() < 22) {
+		} else if (gambler.getHand().getHandValue() < dealerPlays.getHand().getHandValue()
+				&& gambler.getHand().getHandValue() < 22 && dealerPlays.getHand().getHandValue() < 22) {
 			System.out.println("******   Sorry you lose   ******");
 			playAgainMenu();
-		} else if (gambler.getHand().getHandValue() == dealerPlaysHisHand.getHand().getHandValue()
-				&& gambler.getHand().getHandValue() < 22 && dealerPlaysHisHand.getHand().getHandValue() < 22) {
+		} else if (gambler.getHand().getHandValue() == dealerPlays.getHand().getHandValue()
+				&& gambler.getHand().getHandValue() < 22 && dealerPlays.getHand().getHandValue() < 22) {
 			System.out.println("******   It's a tie!   ******");
 			playAgainMenu();
 
 		}
 	}
 
-	
-	
 //		if (gambler.getHand() instanceof BlackJack && ((BlackJackHand) (Player.getHand())).isBust) {
 //		}
 

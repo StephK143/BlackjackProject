@@ -10,7 +10,6 @@ public class Gambler {
 		gamblerHand.addCard(card);
 		
 
-		
 	}
 	public Hand getHand() {
 		return gamblerHand;

@@ -22,10 +22,10 @@ public abstract class Hand {
 		cards.add(card);
 	}
 
-
 	public void addCard(Card card) {
 		cards.add(card);
 	}
+
 	public abstract int getHandValue();
 
 	@Override
