@@ -16,12 +16,12 @@ public class Dealer extends Gambler {
 
 	public void dealCards(Gambler player) {
 		player.addCard(deck.dealCard());
-		System.out.println("Card dealt...");
+		System.out.print("Card dealt...");
 		
 
 	}
 	public void showGamblersHand(Gambler player) {
-		System.out.println("The player's hand is " + player.getHand().getCards() + ". The total of which is " + player.getHand().getHandValue());		
+		System.out.println("\nThe player's hand is " + player.getHand().getCards() + ". The total of which is " + player.getHand().getHandValue());		
 		
 	}
 	
