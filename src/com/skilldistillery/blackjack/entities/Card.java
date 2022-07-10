@@ -10,6 +10,11 @@ public class Card {
 	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
+
+	}
+
+	public Card() {
+
 	}
 
 	public int getValue() {
@@ -32,12 +37,19 @@ public class Card {
 		Card other = (Card) obj;
 		return rank == other.rank && suit == other.suit;
 	}
-	
-	// ascii art this.Suit
 
 	@Override
 	public String toString() {
-		return ("" + rank + " of " + suit + "");
+		StringBuilder builder = new StringBuilder();
+		builder.append("\n").append(suit).append(suit).append(suit).append(suit).append(suit).append(suit).append(suit)
+				.append(suit).append(suit).append(suit).append(suit).append(suit).append(suit).append(suit).append(suit)
+				.append("\n").append(suit).append("             ").append(suit).append("\n").append(suit)
+				.append("             ").append(suit).append("\n").append("     ").append(rank).append("     ")
+				.append("\n").append(suit).append("             ").append(suit).append("\n").append(suit)
+				.append("             ").append(suit).append("\n").append(suit).append(suit).append(suit).append(suit)
+				.append(suit).append(suit).append(suit).append(suit).append(suit).append(suit).append(suit).append(suit)
+				.append(suit).append(suit).append(suit);
+		return builder.toString();
 	}
 
 }

@@ -9,6 +9,8 @@ import com.skilldistillery.blackjack.entities.Card;
 import com.skilldistillery.blackjack.entities.Dealer;
 import com.skilldistillery.blackjack.entities.Deck;
 import com.skilldistillery.blackjack.entities.Gambler;
+import com.skilldistillery.blackjack.entities.Rank;
+import com.skilldistillery.blackjack.entities.Suit;
 
 public class BlackJackApp {
 
@@ -18,13 +20,11 @@ public class BlackJackApp {
 	Gambler dealerPlays = new BlackJackPlayer();
 	Gambler gambler = new BlackJackPlayer();
 	Scanner kb = new Scanner(System.in);
-
 	int numCards = 0;
 
 	public static void main(String[] args) {
 
 		BlackJackApp app = new BlackJackApp();
-
 		app.playBlackJack();
 	}
 
@@ -82,12 +82,14 @@ public class BlackJackApp {
 		}
 		while (gambler.getHand().getHandValue() == 21) {
 			System.out.println("You have 21!!");
+			dealer.dealerShowsHand(dealerPlays);
+			announceWinner();
 			break;
 
 		}
 		while (gambler.getHand().getHandValue() == 21) {
 
-			System.out.println("Your hand is now " + gambler.getHand() + ". Your total is now "
+			System.out.println("Your hand is now " + gambler.getHand() + ". Your new total is "
 					+ gambler.getHand().getHandValue());
 			break;
 
@@ -157,9 +159,6 @@ public class BlackJackApp {
 		}
 	}
 
-//		if (gambler.getHand() instanceof BlackJack && ((BlackJackHand) (Player.getHand())).isBust) {
-//		}
-
 	public void playAgainMenu() {
 		char playAgain = 'y';
 		System.out.println("Would you like to play again? y or n");
@@ -179,3 +178,6 @@ public class BlackJackApp {
 
 	}
 }
+
+//		if (gambler.getHand() instanceof BlackJack && ((BlackJackHand) (Player.getHand())).isBust) {
+//		}

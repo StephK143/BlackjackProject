@@ -8,13 +8,11 @@ public class Gambler {
 
 	public void addCard(Card card) {
 		gamblerHand.addCard(card);
-		
 
 	}
+
 	public Hand getHand() {
 		return gamblerHand;
 	}
 
-	
-	
 }

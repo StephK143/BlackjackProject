@@ -20,24 +20,26 @@ public class Dealer extends Gambler {
 	}
 
 	public void showGamblersHand(Gambler player) {
-		System.out.println("\nThe player's hand is " + player.getHand().getCards() + ". The total of which is "
+		System.out.println("\nThe player's hand is \n" + player.getHand().getCards() + "The total of which is "
 				+ player.getHand().getHandValue());
+		System.out.println();
 
 	}
 
 	public void dealerShowsHand(Gambler player) {
 		System.out.println("The dealer shows his second card. Dealer has " + player.getHand().getCards()
-				+ ". The total of which is " + player.getHand().getHandValue());
+				+ "The total of which is " + player.getHand().getHandValue());
 	}
 
 	public String dealerShowsOneCardUp(Gambler player) {
+
 		String dealerCard = "";
 
 		for (int i = 1; i < player.getHand().getCards().size(); i++) {
 			dealerCard += player.getHand().getCards().get(i);
 
 		}
-		System.out.println("Dealer has one card face down and a " + dealerCard + " showing.");
+		System.out.println("Dealer has one card face down and a " + dealerCard + " face up.");
 		return dealerCard;
 	}
 
