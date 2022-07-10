@@ -34,7 +34,7 @@ public class BlackJackApp {
 		dealStarterCards();
 		dealer.showGamblersHand(gambler);
 		dealer.dealerShowsOneCardUp(dealerPlays);
-		checkHandValue();
+		checkForBlackJack();
 		gamblerPlaysHand();
 		dealerDrawRules();
 		announceWinner();
@@ -73,6 +73,20 @@ public class BlackJackApp {
 		dealer.dealCards(dealerPlays);
 	}
 
+	public void checkForBlackJack() {
+
+//		if (gambler.getHand().getHandValue() == 21) {
+//			System.out.println("You have BlackJack!");
+//			dealerDrawRules();
+//		}
+
+		if (gambler.getHand().getHandValue() == 21) {
+			System.out.println("You have 21!!  BlackJack!");
+			dealer.dealerShowsHand(dealerPlays);
+			announceWinner();
+		}
+	}
+
 	public void checkHandValue() {
 
 		while (gambler.getHand().getHandValue() > 21) {
@@ -80,22 +94,23 @@ public class BlackJackApp {
 			playAgainMenu();
 			break;
 		}
-		while (gambler.getHand().getHandValue() == 21) {
-			System.out.println("You have 21!!");
-			dealer.dealerShowsHand(dealerPlays);
-			announceWinner();
-			break;
+		
+		while (gambler.getHand().getHandValue() < 22) {
 
-		}
-		while (gambler.getHand().getHandValue() == 21) {
-
-			System.out.println("Your hand is now " + gambler.getHand() + ". Your new total is "
-					+ gambler.getHand().getHandValue());
+//			System.out.println("Your hand is now " + gambler.getHand() + ". Your new total is "
+//					+ gambler.getHand().getHandValue());
 			break;
 
 		}
 
 	}
+//	while (gambler.getHand().getHandValue() == 21) {
+//		System.out.println("You have 21!");
+//		dealer.dealerShowsHand(dealerPlays);
+//		announceWinner();
+//		break;
+//
+//	}
 
 	public void displayHand(List<Card> hand) {
 		for (Card card : hand) {
@@ -119,9 +134,12 @@ public class BlackJackApp {
 			System.out.println("Dealer stands with " + dealerPlays.getHand().getHandValue());
 			break;
 		}
-		while (dealerPlays.getHand().getHandValue() > 21) {
+		if (dealerPlays.getHand().getHandValue() > 21) {
 			System.out.println("The dealer busts!");
-			break;
+			if (dealerPlays.getHand().getHandValue() > 21 && gambler.getHand().getHandValue() < 22) {
+				System.out.println("You win!");
+			}
+			playAgainMenu();
 		}
 
 	}
@@ -178,6 +196,3 @@ public class BlackJackApp {
 
 	}
 }
-
-//		if (gambler.getHand() instanceof BlackJack && ((BlackJackHand) (Player.getHand())).isBust) {
-//		}

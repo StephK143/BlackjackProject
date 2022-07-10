@@ -14,7 +14,8 @@ This BlackJack game is a simulation of BlackJack at a table. The player is dealt
 Java - Eclipse - git - gitHub - UML - atom
 
 
-#Concepts used
+
+# Concepts used
 
 Enums - Object Oriented Programming - Class hierarchies - Interfaces - APIE (Abstraction - Polymorphism - Inheritance - Encapsulation) - Implementation - Extension - Lists - Collections - HashCode - Unicode - Ascii Art
 
