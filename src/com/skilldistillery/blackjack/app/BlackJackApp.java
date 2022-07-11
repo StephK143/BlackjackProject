@@ -20,6 +20,7 @@ public class BlackJackApp {
 	Gambler dealerPlays = new BlackJackPlayer();
 	Gambler gambler = new BlackJackPlayer();
 	Scanner kb = new Scanner(System.in);
+
 	int numCards = 0;
 
 	public static void main(String[] args) {
@@ -62,7 +63,8 @@ public class BlackJackApp {
 			default:
 				System.out.println("That is not a valid entry");
 				checkHandValue();
-				gamblerPlaysHand();			}
+				gamblerPlaysHand();
+			}
 		}
 	}
 
@@ -75,10 +77,12 @@ public class BlackJackApp {
 
 	public void checkForBlackJack() {
 
-
 		if (gambler.getHand().getHandValue() == 21) {
 			System.out.println("You have 21!!  BlackJack!");
 			dealer.dealerShowsHand(dealerPlays);
+			if (dealerPlays.getHand().getHandValue() == 21) {
+				System.out.println("Dealer has BlackJack too!");
+			}
 			announceWinner();
 		}
 	}
@@ -90,14 +94,13 @@ public class BlackJackApp {
 			playAgainMenu();
 			break;
 		}
-		
+
 		while (gambler.getHand().getHandValue() < 22) {
 			break;
 
 		}
 
 	}
-
 
 	public void displayHand(List<Card> hand) {
 		for (Card card : hand) {
@@ -179,9 +182,9 @@ public class BlackJackApp {
 		case 'N':
 			System.out.println("You have choosen to quit. GoodBye!");
 			break;
-			default:
-				System.out.println("That is not a valid entry");
-				playAgainMenu();
+		default:
+			System.out.println("That is not a valid entry");
+			playAgainMenu();
 		}
 
 	}
